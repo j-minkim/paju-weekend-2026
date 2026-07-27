@@ -252,7 +252,7 @@ html[data-theme="dark"] .hero-scrim {
 }
 
 .eyebrow {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.14em;
   margin: 0 0 22px;
@@ -362,7 +362,7 @@ html[data-theme="dark"] .hero-scrim {
 
 .hero-facts span {
   color: rgba(238, 246, 244, 0.68);
-  font-size: 11px;
+  font-size: 12px;
   margin-top: 3px;
 }
 
@@ -688,7 +688,7 @@ html[data-theme="dark"] .hero-scrim {
 .map-credit {
   border-top: 1px solid var(--line);
   color: var(--muted);
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .leaflet-container {
@@ -731,7 +731,7 @@ html[data-theme="dark"] .leaflet-tile-pane {
   box-shadow: 0 9px 24px rgba(11, 31, 27, 0.2);
   color: var(--ink);
   display: flex;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
   height: 34px;
   justify-content: center;
@@ -883,13 +883,13 @@ html[data-theme="dark"] .leaflet-tile-pane {
 
 .info-grid span {
   color: var(--muted);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   margin-bottom: 5px;
 }
 
 .info-grid strong {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.5;
 }
 
@@ -914,7 +914,7 @@ blockquote footer {
   align-items: center;
   color: var(--muted);
   display: flex;
-  font-size: 11px;
+  font-size: 12px;
   justify-content: space-between;
 }
 
@@ -933,7 +933,7 @@ blockquote a {
 
 .media-disclaimer {
   color: var(--muted);
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.55;
   margin: 14px 0 0;
 }
@@ -1087,7 +1087,7 @@ blockquote a {
   border-bottom: 1px solid var(--line);
   color: var(--muted);
   display: flex;
-  font-size: 11px;
+  font-size: 12px;
   justify-content: space-between;
   padding: 10px 0;
 }
@@ -1117,7 +1117,7 @@ blockquote a {
 
 .site-footer span,
 .site-footer a {
-  font-size: 11px;
+  font-size: 12px;
   opacity: 0.72;
 }
 

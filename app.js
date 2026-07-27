@@ -273,18 +273,33 @@ const map = L.map("map", {
 
 L.control.zoom({ position: "bottomright" }).addTo(map);
 const mapStatus = document.querySelector("#map-status");
+let loadedTileCount = 0;
+
+function showMapError() {
+  mapStatus.hidden = false;
+  mapStatus.classList.add("is-error");
+  mapStatus.innerHTML =
+    '<i class="ph ph-warning-circle" aria-hidden="true"></i><span>지도를 불러오지 못했습니다. 장소 목록과 외부 지도 링크를 이용해 주세요.</span>';
+}
+
 const tileLayer = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   attribution: "© OpenStreetMap contributors",
 })
-  .on("load", () => {
+  .on("tileload", () => {
+    loadedTileCount += 1;
     mapStatus.hidden = true;
+    mapStatus.classList.remove("is-error");
+  })
+  .on("load", () => {
+    if (loadedTileCount > 0) {
+      mapStatus.hidden = true;
+    } else {
+      showMapError();
+    }
   })
   .on("tileerror", () => {
-    mapStatus.hidden = false;
-    mapStatus.classList.add("is-error");
-    mapStatus.innerHTML =
-      '<i class="ph ph-warning-circle" aria-hidden="true"></i><span>지도를 불러오지 못했습니다. 장소 목록과 외부 지도 링크를 이용해 주세요.</span>';
+    if (loadedTileCount === 0) showMapError();
   })
   .addTo(map);
 
