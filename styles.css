@@ -815,6 +815,10 @@ html[data-theme="dark"] .leaflet-tile-pane {
   position: absolute;
 }
 
+.image-state[hidden] {
+  display: none;
+}
+
 .image-state i {
   font-size: 28px;
 }
