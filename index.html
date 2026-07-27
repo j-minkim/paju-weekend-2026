@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="2026년 8월 15일 파주 여행 첫날을 오전 11시에 시작해 맥뮤지엄, 아이노스, 지혜의숲, 리파크, 교하동 고인돌 산림욕장과 칠복식당을 거쳐 아늑료칸호텔에 체크인하는 1박 2일 인터랙티브 여행 일정입니다."
+    />
+    <meta name="theme-color" content="#dbe8e7" />
+    <meta property="og:title" content="파주 1박 2일 여행 일정 | 아늑료칸호텔 체크인 코스" />
+    <meta
+      property="og:description"
+      content="지도, 실제 이동 경로, 방문자 후기와 사진으로 보는 2026 파주 1박 2일 여행"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/paju-day-to-night.jpg" />
+    <title>파주 1박 2일 여행 일정 | 아늑료칸호텔 체크인 코스</title>
+
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="preconnect" href="https://tile.openstreetmap.org" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="phase-morning">
+    <a class="skip-link" href="#trip-planner">일정으로 바로가기</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="파주 여행 페이지 맨 위로">
+        <span class="wordmark-mark">P</span>
+        <span>Paju, slowly</span>
+      </a>
+      <nav aria-label="주요 탐색">
+        <a href="#trip-planner">일정</a>
+        <a href="#weather-plan">날씨 대응</a>
+        <a href="#sources">출처</a>
+      </nav>
+      <button class="icon-button theme-toggle" type="button" aria-label="색상 모드 전환">
+        <i class="ph ph-moon" aria-hidden="true"></i>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-media" aria-hidden="true">
+          <img
+            src="assets/paju-day-to-night.jpg"
+            alt=""
+            width="1536"
+            height="1024"
+            fetchpriority="high"
+          />
+          <div class="hero-scrim"></div>
+        </div>
+
+        <div class="hero-copy">
+          <p class="eyebrow">2026. 8. 15 SAT - 8. 16 SUN</p>
+          <h1 id="hero-title">파주에서<br /><span>천천히, 1박 2일</span></h1>
+          <p class="hero-subtitle">책과 숲, 좋은 저녁 뒤 19시대 체크인.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#trip-planner">
+              일정 열기
+              <i class="ph ph-arrow-down" aria-hidden="true"></i>
+            </a>
+            <button class="button button-secondary hero-play" type="button">
+              <i class="ph ph-play" aria-hidden="true"></i>
+              <span>경로 재생</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-facts" aria-label="여행 요약">
+          <div>
+            <strong>11</strong>
+            <span>장소</span>
+          </div>
+          <div>
+            <strong>2</strong>
+            <span>하루</span>
+          </div>
+          <div>
+            <strong>19:40</strong>
+            <span>체크인 예상</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro section-shell">
+        <h2>서두르지 않아도<br />모두 만나는 동선</h2>
+        <p>
+          체크인은 18시부터 가능합니다. 저녁을 먼저 먹고 숙소로 이동하도록
+          첫날의 리듬을 다시 맞췄습니다.
+        </p>
+      </section>
+
+      <section id="trip-planner" class="planner section-shell" aria-labelledby="planner-title">
+        <div class="planner-heading">
+          <div>
+            <h2 id="planner-title">시간을 누르면, 지도가 움직입니다</h2>
+            <p>장소를 고르면 실제 위치, 사진, 공개 후기를 한 번에 볼 수 있습니다.</p>
+          </div>
+          <div class="day-switcher" role="tablist" aria-label="여행 날짜 선택">
+            <button
+              class="day-tab is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              data-day="1"
+            >
+              8.15 토요일
+            </button>
+            <button
+              class="day-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-day="2"
+            >
+              8.16 일요일
+            </button>
+          </div>
+        </div>
+
+        <div class="planner-layout">
+          <aside class="timeline-panel" aria-label="시간별 일정">
+            <div class="timeline-progress" aria-hidden="true">
+              <span></span>
+            </div>
+            <div id="timeline" class="timeline"></div>
+          </aside>
+
+          <div class="map-panel">
+            <div class="map-toolbar">
+              <div class="current-stop">
+                <span id="current-time">11:00</span>
+                <strong id="current-place">맥뮤지엄</strong>
+              </div>
+              <button class="route-button" type="button">
+                <i class="ph ph-play" aria-hidden="true"></i>
+                <span>경로 재생</span>
+              </button>
+            </div>
+            <div id="map" role="application" aria-label="파주 여행 이동 경로 지도"></div>
+            <div id="map-status" class="map-status" role="status">
+              <span class="map-skeleton"></span>
+              <span>지도를 불러오는 중입니다</span>
+            </div>
+            <div class="map-credit">
+              <span>OpenStreetMap 기반</span>
+              <span id="route-summary">첫날 7개 정류장</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="place-story section-shell" aria-live="polite" aria-labelledby="place-name">
+        <div class="place-visual">
+          <img id="place-image" src="" alt="" loading="lazy" />
+          <div class="image-state" hidden>
+            <i class="ph ph-image-broken" aria-hidden="true"></i>
+            <span>외부 이미지를 불러오지 못했습니다</span>
+          </div>
+        </div>
+
+        <div class="place-details">
+          <div class="place-meta">
+            <span id="place-type">뮤지엄</span>
+            <span id="place-duration">50분</span>
+          </div>
+          <h2 id="place-name">맥뮤지엄</h2>
+          <p id="place-note" class="place-note"></p>
+
+          <div class="info-grid">
+            <div>
+              <i class="ph ph-map-pin" aria-hidden="true"></i>
+              <span>주소</span>
+              <strong id="place-address"></strong>
+            </div>
+            <div>
+              <i class="ph ph-clock" aria-hidden="true"></i>
+              <span>운영 메모</span>
+              <strong id="place-hours"></strong>
+            </div>
+          </div>
+
+          <blockquote>
+            <i class="ph ph-quotes" aria-hidden="true"></i>
+            <p id="review-text"></p>
+            <footer>
+              <span id="review-source"></span>
+              <a id="review-link" href="#" target="_blank" rel="noreferrer">
+                원문 보기
+                <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </footer>
+          </blockquote>
+
+          <div class="place-actions">
+            <a id="naver-link" class="button button-primary" href="#" target="_blank" rel="noreferrer">
+              <i class="ph ph-navigation-arrow" aria-hidden="true"></i>
+              네이버 지도
+            </a>
+            <a id="google-link" class="button button-secondary" href="#" target="_blank" rel="noreferrer">
+              사진과 리뷰 더 보기
+            </a>
+          </div>
+          <p id="media-disclaimer" class="media-disclaimer">
+            사진과 후기 요약은 연결된 공개 페이지를 바탕으로 표시합니다. 최신 운영 여부는 방문
+            직전 공식 채널에서 다시 확인하세요.
+          </p>
+        </div>
+      </section>
+
+      <section id="weather-plan" class="weather-plan section-shell" aria-labelledby="weather-title">
+        <div class="weather-heading">
+          <h2 id="weather-title">8월의 변수까지 일정에 넣었습니다</h2>
+          <p>폭염과 비가 오면 야외 시간을 줄이고 실내 휴식을 늘립니다.</p>
+        </div>
+        <div class="weather-grid">
+          <article class="weather-card heat-card">
+            <div class="weather-icon">
+              <i class="ph ph-sun-horizon" aria-hidden="true"></i>
+            </div>
+            <div>
+              <h3>폭염이라면</h3>
+              <p>산림욕장은 20분만 걷고, 리파크에서 16시 40분까지 쉽니다.</p>
+            </div>
+          </article>
+          <article class="weather-card rain-card">
+            <div class="weather-icon">
+              <i class="ph ph-cloud-rain" aria-hidden="true"></i>
+            </div>
+            <div>
+              <h3>비가 온다면</h3>
+              <p>산림욕장을 생략하고 칠복식당 주변으로 일찍 이동합니다.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="final-route section-shell">
+        <div class="route-copy">
+          <p>첫날의 마지막 원칙</p>
+          <h2>저녁 이후에는<br />아무것도 더하지 않기</h2>
+        </div>
+        <div class="route-line" aria-label="첫날 최종 동선">
+          <span>맥뮤지엄</span>
+          <i class="ph ph-arrow-right" aria-hidden="true"></i>
+          <span>출판단지</span>
+          <i class="ph ph-arrow-right" aria-hidden="true"></i>
+          <span>숲</span>
+          <i class="ph ph-arrow-right" aria-hidden="true"></i>
+          <span>저녁</span>
+          <i class="ph ph-arrow-right" aria-hidden="true"></i>
+          <span>료칸</span>
+        </div>
+      </section>
+
+      <section id="sources" class="sources section-shell" aria-labelledby="sources-title">
+        <h2 id="sources-title">정보와 이미지 출처</h2>
+        <p>
+          운영 정보와 후기 링크는 2026년 7월 27일 확인 기준입니다. 외부 이미지의 권리는 각
+          원저작자와 플랫폼에 있습니다.
+        </p>
+        <div id="source-list" class="source-list"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Paju, slowly</strong>
+        <span>2026년 8월 15일-16일</span>
+      </div>
+      <a href="#top">맨 위로 <i class="ph ph-arrow-up" aria-hidden="true"></i></a>
+    </footer>
+
+    <noscript>
+      <div class="noscript-message">
+        이 페이지의 지도와 장소 전환 기능을 보려면 JavaScript를 켜주세요.
+      </div>
+    </noscript>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
