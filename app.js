@@ -248,6 +248,9 @@ const sourceEntries = [
   ["콰이어트라이트 방문 후기", "https://www.diningcode.com/profile.php?rid=yVpCeGUN49xb"],
 ];
 
+const ROUTE_SEGMENT_DURATION_MS = 3200;
+const REDUCED_MOTION_STOP_DELAY_MS = 1200;
+
 const state = {
   day: 1,
   selectedIndex: 0,
@@ -495,7 +498,10 @@ function playRoute() {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduceMotion) {
     stops.forEach((_, index) => {
-      window.setTimeout(() => selectStop(index, { focusMap: true }), index * 600);
+      window.setTimeout(
+        () => selectStop(index, { focusMap: true }),
+        index * REDUCED_MOTION_STOP_DELAY_MS,
+      );
     });
     return;
   }
@@ -524,21 +530,22 @@ function playRoute() {
     lineCap: "round",
   }).addTo(map);
 
-  const duration = Math.max(6500, stops.length * 1100);
+  const segmentCount = stops.length - 1;
+  const duration = segmentCount * ROUTE_SEGMENT_DURATION_MS;
   const startTime = performance.now();
   let previousIndex = -1;
 
   function frame(now) {
     const progress = Math.min((now - startTime) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
     const currentCoords =
-      progress === 1 ? stops[stops.length - 1].coords : interpolateRoute(stops, eased);
+      progress === 1 ? stops[stops.length - 1].coords : interpolateRoute(stops, progress);
     state.vehicleMarker.setLatLng(currentCoords);
     state.traveledLine.setLatLngs(
-      progress === 1 ? stops.map((stop) => stop.coords) : buildTraveledCoordinates(stops, eased),
+      progress === 1 ? stops.map((stop) => stop.coords) : buildTraveledCoordinates(stops, progress),
     );
 
-    const selectedIndex = Math.min(Math.round(eased * (stops.length - 1)), stops.length - 1);
+    const selectedIndex =
+      progress === 1 ? stops.length - 1 : Math.floor(progress * segmentCount);
     if (selectedIndex !== previousIndex) {
       previousIndex = selectedIndex;
       selectStop(selectedIndex);
