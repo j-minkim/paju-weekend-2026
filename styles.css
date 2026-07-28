@@ -372,6 +372,10 @@ html[data-theme="dark"] .hero-scrim {
   padding-inline: clamp(20px, 5vw, 80px);
 }
 
+section[id] {
+  scroll-margin-top: calc(var(--header-height) + 24px);
+}
+
 .intro {
   align-items: end;
   display: grid;
@@ -427,7 +431,7 @@ html[data-theme="dark"] .hero-scrim {
   border: 1px solid var(--line);
   border-radius: var(--radius-control);
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   padding: 4px;
 }
 
@@ -538,6 +542,14 @@ html[data-theme="dark"] .hero-scrim {
   padding-top: 3px;
 }
 
+.timeline-time small {
+  display: block;
+  font-size: 11px;
+  font-weight: 520;
+  margin-top: 3px;
+  opacity: 0.72;
+}
+
 .timeline-dot {
   background: var(--surface-solid);
   border: 2px solid var(--muted);
@@ -570,6 +582,15 @@ html[data-theme="dark"] .hero-scrim {
   font-size: 12px;
   line-height: 1.45;
   margin-top: 3px;
+}
+
+.timeline-copy small {
+  color: var(--accent-strong);
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-top: 5px;
 }
 
 .map-panel {
@@ -1044,25 +1065,47 @@ blockquote a {
   max-width: 10ch;
 }
 
-.route-line {
+.route-copy > span {
+  display: block;
+  font-size: 14px;
+  margin-top: 24px;
+  opacity: 0.76;
+}
+
+.route-days {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.route-day {
   align-items: center;
+  background: color-mix(in srgb, var(--surface-strong) 60%, transparent);
+  border-radius: var(--radius-card);
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(150px, 0.28fr) minmax(0, 0.72fr);
+  padding: 22px 24px;
+}
+
+.route-day div {
+  display: grid;
+  gap: 4px;
+}
+
+.route-day strong {
+  font-size: 14px;
+}
+
+.route-day span,
+.route-day p {
   color: var(--muted);
-  display: flex;
   font-size: 13px;
-  gap: 16px;
-  justify-content: space-between;
-  overflow-x: auto;
-  padding: 25px 5px 0;
-  scrollbar-width: none;
-  white-space: nowrap;
+  line-height: 1.65;
 }
 
-.route-line::-webkit-scrollbar {
-  display: none;
-}
-
-.route-line i {
-  color: var(--accent-strong);
+.route-day p {
+  margin: 0;
 }
 
 .sources {
@@ -1300,6 +1343,10 @@ blockquote a {
     width: 100%;
   }
 
+  .day-tab {
+    padding-inline: 8px;
+  }
+
   .planner-layout {
     min-height: 0;
   }
@@ -1388,6 +1435,13 @@ blockquote a {
 
   .route-copy {
     min-height: 460px;
+  }
+
+  .route-day {
+    align-items: start;
+    gap: 12px;
+    grid-template-columns: 1fr;
+    padding: 20px;
   }
 
   .source-list {
