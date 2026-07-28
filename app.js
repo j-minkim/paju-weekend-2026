@@ -303,7 +303,7 @@ const tripDays = {
       review:
         "열린 수장고와 미디어 정보 월을 직접 둘러볼 수 있어, 보관 공간 자체가 전시처럼 느껴진다는 후기입니다.",
       reviewSource: "국립민속박물관 파주 공식 안내",
-      reviewUrl: "https://www.nfm.go.kr/paju/api/file/static/14",
+      reviewUrl: "https://www.nfm.go.kr/paju/api/file/static/25",
     },
     {
       id: "vivamus",
@@ -361,7 +361,7 @@ const sourceEntries = [
     "도토리정원 방문기",
     "https://www.mytravelnotes.co.kr/travel/domestic-travel/%ED%8C%8C%EC%A3%BC-%ED%97%A4%EC%9D%B4%EB%A6%AC-%ED%95%9C%EC%A0%95%EC%8B%9D-%EB%A7%9B%EC%A7%91-%EB%8F%84%ED%86%A0%EB%A6%AC%EC%A0%95%EC%9B%90-%EB%B6%80%EB%AA%A8%EB%8B%98-%EB%AA%A8%EC%8B%9C%EA%B8%B0/",
   ],
-  ["국립민속박물관 파주 공식 안내", "https://www.nfm.go.kr/paju/api/file/static/14"],
+  ["국립민속박물관 파주 공식 안내", "https://www.nfm.go.kr/paju/api/file/static/25"],
   [
     "2026년 대체공휴일 공식 월력요항",
     "https://www.kasa.go.kr/prog/bbsArticle/BBSMSTR_000000000010/view.do?bbsId=BBSMSTR_000000000010&nttId=B000000001860Pe2zT3",
